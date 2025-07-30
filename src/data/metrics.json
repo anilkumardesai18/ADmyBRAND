@@ -1,0 +1,26 @@
+[
+  {
+    "icon": "attach_money",
+    "title": "Total Revenue",
+    "value": "$45,231.89",
+    "change": 5.2
+  },
+  {
+    "icon": "person",
+    "title": "Active Users",
+    "value": "1,204",
+    "change": 2.1
+  },
+  {
+    "icon": "shopping_cart",
+    "title": "Conversions",
+    "value": "312",
+    "change": -1.4
+  },
+  {
+    "icon": "visibility",
+    "title": "Impressions",
+    "value": "98,123",
+    "change": 3.7
+  }
+]

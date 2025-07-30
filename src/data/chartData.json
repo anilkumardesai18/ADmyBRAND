@@ -1,0 +1,24 @@
+{
+  "revenueOverTime": [
+    { "month": "Jan", "revenue": 32000, "users": 1200 },
+    { "month": "Feb", "revenue": 35000, "users": 1350 },
+    { "month": "Mar", "revenue": 38000, "users": 1400 },
+    { "month": "Apr", "revenue": 42000, "users": 1600 },
+    { "month": "May", "revenue": 45000, "users": 1750 },
+    { "month": "Jun", "revenue": 48000, "users": 1900 }
+  ],
+  "revenueByChannel": [
+    { "channel": "Organic Search", "revenue": 18500 },
+    { "channel": "Paid Ads", "revenue": 15200 },
+    { "channel": "Social Media", "revenue": 8300 },
+    { "channel": "Email", "revenue": 6200 },
+    { "channel": "Direct", "revenue": 4800 }
+  ],
+  "trafficSources": [
+    { "name": "Organic Search", "value": 45, "color": "#3B82F6" },
+    { "name": "Paid Ads", "value": 28, "color": "#10B981" },
+    { "name": "Social Media", "value": 15, "color": "#F59E0B" },
+    { "name": "Email", "value": 8, "color": "#EF4444" },
+    { "name": "Direct", "value": 4, "color": "#8B5CF6" }
+  ]
+}

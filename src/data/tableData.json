@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "campaign": "Summer Sale 2024",
+    "channel": "Google Ads",
+    "impressions": 125000,
+    "clicks": 3200,
+    "conversions": 156,
+    "revenue": "$12,450",
+    "ctr": "2.56%",
+    "conversionRate": "4.88%",
+    "status": "Active"
+  },
+  {
+    "id": 2,
+    "campaign": "Brand Awareness Q2",
+    "channel": "Facebook Ads",
+    "impressions": 98000,
+    "clicks": 2100,
+    "conversions": 89,
+    "revenue": "$7,230",
+    "ctr": "2.14%",
+    "conversionRate": "4.24%",
+    "status": "Active"
+  },
+  {
+    "id": 3,
+    "campaign": "Product Launch",
+    "channel": "Instagram Ads",
+    "impressions": 76000,
+    "clicks": 1850,
+    "conversions": 112,
+    "revenue": "$9,680",
+    "ctr": "2.43%",
+    "conversionRate": "6.05%",
+    "status": "Paused"
+  },
+  {
+    "id": 4,
+    "campaign": "Email Newsletter",
+    "channel": "Email Marketing",
+    "impressions": 45000,
+    "clicks": 1200,
+    "conversions": 78,
+    "revenue": "$5,460",
+    "ctr": "2.67%",
+    "conversionRate": "6.50%",
+    "status": "Active"
+  },
+  {
+    "id": 5,
+    "campaign": "SEO Content Push",
+    "channel": "Organic Search",
+    "impressions": 156000,
+    "clicks": 4200,
+    "conversions": 234,
+    "revenue": "$18,720",
+    "ctr": "2.69%",
+    "conversionRate": "5.57%",
+    "status": "Active"
+  },
+  {
+    "id": 6,
+    "campaign": "Retargeting Campaign",
+    "channel": "Display Ads",
+    "impressions": 89000,
+    "clicks": 1680,
+    "conversions": 95,
+    "revenue": "$8,550",
+    "ctr": "1.89%",
+    "conversionRate": "5.65%",
+    "status": "Active"
+  }
+]
