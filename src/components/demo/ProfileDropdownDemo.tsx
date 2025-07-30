@@ -32,7 +32,7 @@ export function ProfileDropdownDemo() {
               </li>
               <li className="flex items-center gap-2">
                 <span className="material-icons text-sm">check_circle</span>
-                <strong>Navigation Links:</strong> Profile, Settings, Help & Support, Privacy pages
+                <strong>Navigation Links:</strong> Profile, Settings, Help &amp; Support, Privacy pages
               </li>
               <li className="flex items-center gap-2">
                 <span className="material-icons text-sm">check_circle</span>
@@ -53,8 +53,8 @@ export function ProfileDropdownDemo() {
               <ul className="space-y-2 text-blue-800 dark:text-blue-200 text-sm">
                 <li>• <strong>Profile:</strong> /profile - User profile page</li>
                 <li>• <strong>Account Settings:</strong> /settings - Settings page</li>
-                <li>• <strong>Help & Support:</strong> /help-support - Help center</li>
-                <li>• <strong>Privacy & Security:</strong> /privacy - Privacy settings</li>
+                <li>• <strong>Help &amp; Support:</strong> /help-support - Help center</li>
+                <li>• <strong>Privacy &amp; Security:</strong> /privacy - Privacy settings</li>
               </ul>
             </div>
 
@@ -85,7 +85,7 @@ export function ProfileDropdownDemo() {
               <li><strong>1.</strong> Look at the top-right corner of the page</li>
               <li><strong>2.</strong> Click on the user avatar/profile button</li>
               <li><strong>3.</strong> Try clicking on different menu items to navigate</li>
-              <li><strong>4.</strong> Test the "Sign Out" button to see logout functionality</li>
+              <li><strong>4.</strong> Test the &quot;Sign Out&quot; button to see logout functionality</li>
               <li><strong>5.</strong> Use demo credentials on login page: admin@admybrand.com / password</li>
             </ol>
           </div>
