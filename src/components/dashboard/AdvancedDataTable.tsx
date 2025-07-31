@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { exportCampaignPerformance, handleExportWithLoading } from "@/lib/exportUtils";
 
 interface TableData {
   id: number;
@@ -42,6 +43,7 @@ export function AdvancedDataTable({
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [channelFilter, setChannelFilter] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'table' | 'grid'>('table');
+  const [isExporting, setIsExporting] = useState(false);
   const itemsPerPage = 10;
 
   const handleSort = (field: keyof TableData) => {
@@ -67,6 +69,31 @@ export function AdvancedDataTable({
     } else {
       setSelectedRows(filteredAndSortedData.map(row => row.id));
     }
+  };
+
+  const handleExport = async () => {
+    await handleExportWithLoading(
+      () => exportCampaignPerformance(
+        filteredAndSortedData.map(row => ({ 
+          id: row.id,
+          campaign: row.campaign,
+          channel: row.channel,
+          impressions: row.impressions,
+          clicks: row.clicks,
+          conversions: row.conversions,
+          revenue: row.revenue,
+          ctr: row.ctr,
+          conversionRate: row.conversionRate,
+          status: row.status,
+          budget: row.budget || '',
+          spend: row.spend || '',
+          roas: row.roas || ''
+        })), 
+        selectedRows.length > 0 ? selectedRows : undefined
+      ),
+      setIsExporting,
+      'Campaign performance data exported successfully'
+    );
   };
 
   const filteredAndSortedData = useMemo(() => {
@@ -161,12 +188,16 @@ export function AdvancedDataTable({
 
             {showExport && (
               <motion.button 
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2"
+                onClick={handleExport}
+                disabled={isExporting}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center gap-2 disabled:opacity-50"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="material-icons text-sm">file_download</span>
-                Export
+                <span className="material-icons text-sm">
+                  {isExporting ? 'hourglass_empty' : 'file_download'}
+                </span>
+                {isExporting ? 'Exporting...' : 'Export'}
               </motion.button>
             )}
           </div>

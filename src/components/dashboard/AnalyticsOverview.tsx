@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { exportAnalyticsOverview, handleExportWithLoading } from "@/lib/exportUtils";
 
 interface AnalyticsData {
   totalRevenue: number;
@@ -25,6 +26,7 @@ interface Goal {
 
 export function AnalyticsOverview() {
   const [selectedPeriod, setSelectedPeriod] = useState('30d');
+  const [isExporting, setIsExporting] = useState(false);
   const [analyticsData] = useState<AnalyticsData>({
     totalRevenue: 245890,
     totalUsers: 12847,
@@ -69,6 +71,34 @@ export function AnalyticsOverview() {
     { id: '90d', label: '90 Days' },
     { id: '1y', label: '1 Year' }
   ];
+
+  const handleExport = async () => {
+    await handleExportWithLoading(
+      () => exportAnalyticsOverview(
+        {
+          totalRevenue: analyticsData.totalRevenue,
+          totalUsers: analyticsData.totalUsers,
+          conversionRate: analyticsData.conversionRate,
+          avgOrderValue: analyticsData.avgOrderValue,
+          revenueGrowth: analyticsData.revenueGrowth,
+          userGrowth: analyticsData.userGrowth,
+          conversionGrowth: analyticsData.conversionGrowth,
+          aovGrowth: analyticsData.aovGrowth
+        }, 
+        goals.map(goal => ({
+          id: goal.id,
+          title: goal.title,
+          current: goal.current,
+          target: goal.target,
+          unit: goal.unit,
+          color: goal.color
+        })), 
+        selectedPeriod
+      ),
+      setIsExporting,
+      'Analytics overview exported successfully'
+    );
+  };
 
   const formatValue = (value: number, unit: string) => {
     if (unit === '$') {
@@ -116,12 +146,16 @@ export function AnalyticsOverview() {
           </div>
           
           <motion.button
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+            onClick={handleExport}
+            disabled={isExporting}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2 disabled:opacity-50"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span className="material-icons text-sm">download</span>
-            Export
+            <span className="material-icons text-sm">
+              {isExporting ? 'hourglass_empty' : 'download'}
+            </span>
+            {isExporting ? 'Exporting...' : 'Export'}
           </motion.button>
         </div>
       </div>

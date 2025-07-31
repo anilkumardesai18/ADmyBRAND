@@ -6,6 +6,7 @@ import { DashboardLineChart } from "@/components/dashboard/LineChart";
 import { DashboardBarChart } from "@/components/dashboard/BarChart";
 import { DonutChart } from "@/components/dashboard/DonutChart";
 import { DataTable } from "@/components/dashboard/DataTable";
+import { exportAdvancedReport, handleExportWithLoading } from "@/lib/exportUtils";
 
 import chartData from "@/data/chartData.json";
 import tableData from "@/data/tableData.json";
@@ -54,10 +55,11 @@ export default function ReportsPage() {
   ];
 
   const handleExport = async () => {
-    setIsExporting(true);
-    // Simulate export process
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsExporting(false);
+    await handleExportWithLoading(
+      () => exportAdvancedReport(performanceData, chartData, selectedMetric, dateRange),
+      setIsExporting,
+      'Advanced report exported successfully'
+    );
   };
 
   return (
