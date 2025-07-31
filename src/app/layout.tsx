@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { CollapsibleDashboardLayout } from "@/components/layout/CollapsibleDashboardLayout";
+import { ResponsiveDashboardLayout } from "@/components/layout/ResponsiveDashboardLayout";
 import { AuthProvider } from "@/contexts/AuthContext";
 
 const inter = Inter({
@@ -26,9 +26,9 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         <AuthProvider>
-          <CollapsibleDashboardLayout>
+          <ResponsiveDashboardLayout>
             {children}
-          </CollapsibleDashboardLayout>
+          </ResponsiveDashboardLayout>
         </AuthProvider>
       </body>
     </html>
